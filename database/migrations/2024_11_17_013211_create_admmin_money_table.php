@@ -16,7 +16,6 @@ return new class extends Migration
             $table->decimal('amount', 15, 2); // Số tiền biến động
             $table->text('description')->nullable(); // Mô tả giao dịch
             $table->unsignedBigInteger('user_id')->nullable(); // ID công ty (nếu áp dụng)
-            $table->decimal('admin_balance', 15, 2)->default(0); // Tổng số tiền hiện tại trong hệ thống
             $table->timestamps(); 
         
             // Liên kết khóa ngoại tới bảng user

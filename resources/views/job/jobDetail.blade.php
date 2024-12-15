@@ -65,22 +65,30 @@
             @endif
             @else
               <div class="row mb-5">
-                <div class="col-6">
-                  @if($favourite)
-                      <a href="#" class="btn btn-light btn-md text-nowrap remove-job-btn" data-job-id="{{ $job->id }}">
-                          <span class="icon-heart mr-2 text-danger"></span>Bỏ lưu
-                      </a>
-                  @else
-                      <a href="#" class="btn btn-light btn-md text-nowrap save-job-btn" data-job-id="{{ $job->id }}">
-                          <span class="icon-heart-o mr-2 text-danger"></span>Lưu công việc
-                      </a>
-                  @endif
-              </div>
-                <div class="col-6">
-                  <button type="button" class="btn text-nowrap btn-primary btn-md" data-toggle="modal" data-target="#exampleModalCenter">
-                    Nạp đơn ngay
-                  </button>
-                </div>
+                @if(\Carbon\Carbon::now()->gt(\Carbon\Carbon::parse($job->expires_at)))
+                  <div class="col-12  text-right">
+                    <div  class=" text-nowrap bg-danger p-3 font-weight-bold text-white">
+                      Công việc đã hết hạn
+                    </div>
+                  </div>
+                @else
+                  <div class="col-6">
+                    @if($favourite)
+                        <a href="#" class="btn btn-light btn-md text-nowrap remove-job-btn" data-job-id="{{ $job->id }}">
+                            <span class="icon-heart mr-2 text-danger"></span>Bỏ lưu
+                        </a>
+                    @else
+                        <a href="#" class="btn btn-light btn-md text-nowrap save-job-btn" data-job-id="{{ $job->id }}">
+                            <span class="icon-heart-o mr-2 text-danger"></span>Lưu công việc
+                        </a>
+                    @endif
+                  </div>
+                  <div class="col-6">
+                    <button type="button" class="btn text-nowrap btn-primary btn-md" data-toggle="modal" data-target="#exampleModalCenter">
+                      Nạp đơn ngay
+                    </button>
+                  </div>
+                @endif
               </div>
 
               <!-- Modal -->

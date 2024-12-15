@@ -35,13 +35,22 @@ class ApplicationStatusNotification extends Mailable
     public function build()
     {
         $statusMessage = $this->status == 1 ? 'đã được duyệt' : 'đã bị từ chối';
-
-        return $this->subject('Thông báo về trạng thái đơn ứng tuyển')
-                    ->view('email.mail_application') // Chỉ định view email
-                    ->with([
-                        'company' => $this->application->Job->company->name,
-                        'jobTitle' => $this->application->Job->title,
-                        'statusMessage' => $statusMessage,
-                    ]);
+        if($this->status == 1){
+            return $this->subject('Thông báo về trạng thái đơn ứng tuyển')
+            ->view('email.mail_ok') // Chỉ định view email
+            ->with([
+                'company' => $this->application->Job->company->name,
+                'jobTitle' => $this->application->Job->title,
+                'statusMessage' => $statusMessage,
+            ]);
+        }else{
+            return $this->subject('Thông báo về trạng thái đơn ứng tuyển')
+            ->view('email.mail_cancel') // Chỉ định view email
+            ->with([
+                'company' => $this->application->Job->company->name,
+                'jobTitle' => $this->application->Job->title,
+                'statusMessage' => $statusMessage,
+            ]);
+        }
     }
 }

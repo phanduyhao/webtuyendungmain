@@ -41,26 +41,28 @@
                 </button>
               </div>
               <div class="modal-body">
-                @if(Auth::check() && Auth::user()->role_id === 2)
-                  @if($newAppliedCv)
-                    @foreach($newAppliedCv as $item)
-                    <a href="{{ route('jobApplications', $item->job_id) }}" class="text-dark">
-                      <i class="font-weight-bold">{{$item->created_at}}</i>
-                      <p class="border-bottom pb-3">Người dùng <b><u>{{ $item->user->name }}</u></b> đã ứng tuyển công việc <b><u>{{ $item->job->title }}</u></b> trên website.</p>
-                    </a>
-                    @endforeach
-                  @endif
-                  @elseif(Auth::check() && Auth::user()->role_id === 3)
-                    @if($notifies)
-                      @foreach($notifies as $item)
-                      <a href="{{ route('jobDetail', $item->Application->Job->slug) }}" class="text-dark">
-                        <i class="font-weight-bold">{{$item->created_at}}</i>
-                        <p class="border-bottom pb-3">{{$item->contents}}</p>
-                      </a>                      
-                      @endforeach
+                @if(Auth::check())
+                    @if(Auth::user()->role_id === 3)
+                        @if($notifies)
+                            @foreach($notifies as $item)
+                                <a href="{{ route('jobDetail', $item->Application->Job->slug) }}" class="text-dark">
+                                <i class="font-weight-bold">{{$item->created_at}}</i>
+                                <p class="border-bottom pb-3">{{$item->contents}}</p>
+                                </a>
+                            @endforeach
+                        @endif
+                    @else
+                        @if($newAppliedCv)
+                            @foreach($newAppliedCv as $item)
+                                <a href="{{ route('jobApplications', $item->job_id) }}" class="text-dark">
+                                    <i class="font-weight-bold">{{$item->created_at}}</i>
+                                    <p class="border-bottom pb-3">Người dùng <b><u>{{ $item->user->name }}</u></b> đã ứng tuyển công việc <b><u>{{ $item->job->title }}</u></b> trên website.</p>
+                                </a>
+                            @endforeach
+                        @endif
                     @endif
                 @endif
-              </div>
+            </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
@@ -137,6 +139,7 @@
                         @if(Auth::check() && Auth::user()->role_id != 3)
                         <button type="button" class="btn dropdown-item d-flex align-items-center justify-content-center border-bottom" data-toggle="modal" data-target="#infoModal">Thông báo<span class="badge ml-2 badge-danger rounded-circle d-flex align-items-center justify-content-center" style="width:25px ;font-size:16px">{{$count_newAppliedCv}}</span></button>
                         <a class="dropdown-item border-bottom" href="{{route('viewJobPage')}}">Công việc đã Đăng</a>
+                        <a class="dropdown-item border-bottom" href="{{route('mailHistory')}}">Lịch sử gửi Mail</a>
                         <a class="dropdown-item border-bottom" href="{{route('checkout.history')}}">Lịch sử nạp tiền</a>
                         @else
                         <button type="button" id="notifyButton" class="btn border-bottom btn-info-employee dropdown-item d-flex align-items-center justify-content-center" data-toggle="modal" data-target="#infoModal">Thông báo<span class="badge ml-2 badge-danger rounded-circle d-flex align-items-center justify-content-center" style="width:25px ;font-size:16px">{{$count_notifies}}</span></button>

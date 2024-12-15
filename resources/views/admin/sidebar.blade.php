@@ -98,6 +98,12 @@
             </a>
         </li>
         <li class='menu-item'>
+            <a href='{{route('mail.index')}}' class='menu-link'>
+                <i class='menu-icon tf-icons bx bx-food-menu'></i>
+                <div data-i18n='Layouts'>Lịch sử gửi mail</div>
+            </a>
+        </li>
+        <li class='menu-item'>
             <a href='{{route('settings.index')}}' class='menu-link'>
                 <i class="menu-icon tf-icons bx bx-cog"></i>
                 <div data-i18n='Layouts'>Thiết lập</div>

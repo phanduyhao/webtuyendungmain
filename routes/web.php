@@ -15,6 +15,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\AdminJobController;
 use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\AdminMailController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\FavouriteController;
@@ -75,6 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
 
             // Lịch sử doanh thu
             Route::get('/doanhthu', [AdminHomeController::class, 'history'])->name('doanhthu.index');
+            Route::get('/mail', [AdminMailController::class, 'index'])->name('mail.index');
 
         });
     });
@@ -96,7 +98,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post("checkout/Payment", [PaymentController::class, "payment"])->name("checkout.payment.vnpay");
         Route::get("checkout/complete/{code}", [PaymentController::class, "complete"])->name("checkout.complete");
         Route::get("checkout/history", [PaymentController::class, "history"])->name("checkout.history");
-    
+
+        Route::get("mailHistory", [NotifyController::class, "mailHistoryCompany"])->name("mailHistory");
     });
 
     // EMPLOYEE

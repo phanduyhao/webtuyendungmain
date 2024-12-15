@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MailHistory;
 use App\Models\Notify;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NotifyController extends Controller
 {
@@ -22,5 +24,12 @@ class NotifyController extends Controller
         } else {
             return response()->json(['success' => false, 'message' => 'Không có thông báo nào cần cập nhật.']);
         }
+    }
+
+    public function mailHistoryCompany(){
+        $mails = MailHistory::where('company_id',Auth::user()->id)->orderByDesc('id')->paginate(10);
+        return view('company.mailHistory',compact('mails'),[
+            'title' => 'Lịch sử gửi mail'
+        ]);
     }
 }

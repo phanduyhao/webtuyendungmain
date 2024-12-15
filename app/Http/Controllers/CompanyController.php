@@ -10,13 +10,15 @@ use App\Models\Company;
 use App\Models\setting;
 use App\Models\AdmminMoney;
 use App\Models\Application;
+use App\Models\MailHistory;
 use Illuminate\Support\Str;
 use App\Models\Job_Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Mail\ApplicationStatusNotification;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Mail; // Đảm bảo bạn đã import Mail
+
 class CompanyController extends Controller
 {
     use ValidatesRequests;
@@ -326,7 +328,12 @@ class CompanyController extends Controller
         // Gửi email thông báo
         $email = $application->User->email;
         Mail::to($email)->send(new ApplicationStatusNotification($application, 1));
-
+        $mailHistory = new MailHistory;
+        $mailHistory->user_id = $application->user_id;;
+        $mailHistory->company_id = Auth::user()->id;
+        $mailHistory->title = 'Thông báo về trạng thái đơn ứng tuyển';
+        $mailHistory->mail_content = "Đơn ứng tuyển cho công việc (" . $application->Job->title . ") đã được duyệt. Vui lòng liên hệ lại công ty để trao đổi chi tiết!";
+        $mailHistory->save();
         return response()->json(['success' => true, 'message' => 'Đơn ứng tuyển đã được duyệt!']);
     }
 
@@ -347,7 +354,14 @@ class CompanyController extends Controller
         // Gửi email thông báo
         $email = $application->User->email;
         Mail::to($email)->send(new ApplicationStatusNotification($application, 0));
-
+        $mailHistory = new MailHistory;
+        $mailHistory->company_id = Auth::user()->id;
+        $mailHistory->user_id = $application->user_id;;
+        $mailHistory->title = 'Thông báo về trạng thái đơn ứng tuyển';
+        $mailHistory->mail_content = "Đơn ứng tuyển cho công việc (" . $application->Job->title . ") đã bị hủy. Vui lòng liên hệ lại công ty để trao đổi chi tiết!";
+        $mailHistory->save();
         return response()->json(['success' => true, 'message' => 'Đơn ứng tuyển đã bị hủy!']);
     }
+
+    
 }
