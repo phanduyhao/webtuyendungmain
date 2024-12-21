@@ -15,7 +15,7 @@
         "makeMigration": "php artisan migrate",
         "CreateSeeder": " php artisan make:seeder Job_CategorySeeder",
         "RunSeeder": "php artisan db:seed --class=Job_CategorySeeder",
-        "makeOnlyMigration": "php artisan migrate --path=database/migrations/2024_12_12_112600_update_mail_history.php",
+        "makeOnlyMigration": "php artisan migrate --path=database/migrations/2024_12_21_160726_create_password_resets_table.php",
         "makeFormRequest": "php artisan make:request Menu/CreateFormRequest",
         "list": "php artisan route:list",
         "storage": "php artisan storage:link",

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
@@ -102,6 +105,71 @@ class AuthController extends Controller
              'email' => 'Email hoặc mật khẩu không đúng',
          ])->withInput($request->only('email'));
      }
+
+     public function showForgotPass(){
+         return view('auth.forgotPass',[
+             'title' => 'Quên mật khẩu'
+         ]);
+     }
+
+     public function sendMailForgotPass(Request $request) {
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+        ],[
+            'email.required' => 'Vui lòng nhập email !',
+            'email.exists' => 'Email không tồn tại !',
+        ]);
+    
+        $token = Str::random(64);
+    
+        // Lưu token vào bảng password_resets
+        DB::table('password_resets')->insert([
+            'email' => $request->email,
+            'token' => $token,
+            'created_at' => now()
+        ]);
+    
+        // Gửi email
+        Mail::send('auth.emailResetPassword', ['token' => $token], function($message) use ($request) {
+            $message->to($request->email);
+            $message->subject('Đặt lại mật khẩu');
+        });
+    
+        return back()->with('success', 'Email đặt lại mật khẩu đã được gửi.');
+    }
+
+    public function showResetPassword($token) {
+        return view('auth.resetPassword', ['token' => $token, 'title' => 'Đặt lại mật khẩu']);
+    }
+
+    public function resetPassword(Request $request) {
+        $request->validate([
+            'password' => 'required|min:6|confirmed',
+            'token' => 'required'
+        ]);
+    
+        // Tìm email từ token
+        $reset = DB::table('password_resets')->where('token', $request->token)->first();
+    
+        if (!$reset) {
+            return back()->withErrors(['token' => 'Token không hợp lệ hoặc đã hết hạn.']);
+        }
+    
+        // Cập nhật mật khẩu
+        $user = \App\Models\User::where('email', $reset->email)->first();
+        if (!$user) {
+            return back()->withErrors(['email' => 'Không tìm thấy người dùng với email này.']);
+        }
+    
+        $user->password = bcrypt($request->password);
+        $user->save();
+    
+        // Xóa token sau khi sử dụng
+        DB::table('password_resets')->where(['email' => $reset->email])->delete();
+    
+        return redirect()->route('login')->with('success', 'Mật khẩu của bạn đã được đặt lại thành công.');
+    }
+    
 
     /**
      * Đăng xuất.

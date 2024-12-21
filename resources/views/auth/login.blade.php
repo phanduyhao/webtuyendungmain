@@ -39,14 +39,16 @@
 
             <div class="row form-group ">
               <div class="col-md-12 d-flex justify-content-between align-items-center">
-                <input type="submit" value="Đăng nhập" class="btn px-4 btn-primary text-white">
+                <a href="{{route('showForgotPass')}}" class="fw-bold text-info"> Quên mật khẩu?</a>
                 <div>
                   Chưa có tài khoản?
                   <a href="{{route('showRegister')}}" class="fw-bold text-info"> Đăng ký</a>
                 </div>
               </div>
+              <div class="w-100 text-center mt-3">
+                <input type="submit" value="Đăng nhập" class="btn px-4 btn-primary text-white">
+              </div>
             </div>
-
           </form>
         </div>
         <div class="col-3"></div>

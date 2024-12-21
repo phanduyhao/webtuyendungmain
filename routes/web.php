@@ -30,6 +30,12 @@ Route::get('/showRegister', [AuthController::class, 'showRegister'])->name('show
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/forgot-password', [AuthController::class, 'showForgotPass'])->name('showForgotPass');
+Route::post('/forgot-password', [AuthController::class, 'sendMailForgotPass'])->name('sendMailForgotPass');
+Route::get('/reset-password/{token}', [AuthController::class, 'showResetPassword'])->name('resetPassword');
+Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('postResetPassword');
+
 Route::get('/jobDetail/{slug}', [JobController::class, 'jobDetail'])->name('jobDetail');
 Route::get('/jobList', [JobController::class, 'jobList'])->name('jobList');
 Route::get('/about', [PageController::class, 'about'])->name('about');
