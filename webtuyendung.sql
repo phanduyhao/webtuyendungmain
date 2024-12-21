@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th12 02, 2024 lúc 05:51 PM
+-- Thời gian đã tạo: Th12 21, 2024 lúc 04:30 PM
 -- Phiên bản máy phục vụ: 8.0.30
 -- Phiên bản PHP: 8.2.23
 
@@ -92,8 +92,9 @@ INSERT INTO `applications` (`id`, `user_id`, `job_id`, `fileCv`, `experience`, `
 (8, 38, 29, 'Biện Trường 1.pdf', NULL, 0, '2024-11-21 20:46:10', '2024-11-22 07:26:17'),
 (9, 24, 29, 'User 21.pdf', NULL, 1, '2024-11-22 07:14:29', '2024-12-01 08:57:45'),
 (10, 40, 27, 'Nguyễn thị Mai.pdf', '2 năm', 0, '2024-12-02 09:15:54', '2024-12-02 10:14:07'),
-(11, 41, 27, 'haomrvuii.pdf', '3 năm', 0, '2024-12-02 10:16:56', '2024-12-02 10:22:24'),
-(12, 41, 30, 'haomrvuii.pdf', '2 năm', NULL, '2024-12-02 10:40:53', '2024-12-02 10:40:53');
+(11, 41, 27, 'haomrvuii.pdf', '3 năm', 1, '2024-12-02 10:16:56', '2024-12-06 07:21:47'),
+(12, 41, 30, 'haomrvuii.pdf', '2 năm', NULL, '2024-12-02 10:40:53', '2024-12-02 10:40:53'),
+(13, 35, 16, 'nguyen van a.pdf', '2 năm', 1, '2024-12-11 20:47:53', '2024-12-12 04:34:16');
 
 -- --------------------------------------------------------
 
@@ -239,7 +240,7 @@ CREATE TABLE `jobs` (
 INSERT INTO `jobs` (`id`, `user_id`, `title`, `slug`, `thumb`, `description`, `position`, `location`, `requirements`, `type`, `job_categories_id`, `salary`, `Experience`, `gender`, `expires_at`, `Hide`, `created_at`, `updated_at`, `company_id`) VALUES
 (14, 2, 'Chuyên Viên Digital Marketing', 'chuyen-vien-digital-marketing', 'chuyen-vien-digital-marketing.jpg', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><ul><li>Phát triển và vận hành website:</li><li>Đảm bảo website hoạt động ổn định, cập nhật nội dung thường xuyên và cải thiện trải nghiệm người dùng.</li><li>Đề xuất và triển khai các tính năng mới phù hợp với chiến lược kinh doanh và yêu cầu marketing của công ty</li><li>Phối hợp với bộ phận IT để kiểm tra và đảm bảo tính khả dụng, độ tương thích của các tính năng trên các thiết bị và trình duyệt khác nhau cũng như khắc phục lỗi.</li><li>Phối hợp với chuyên viên phát triển nội dung để cập nhật và phát triển nội dung trên website (hình ảnh, video, tài liệu...) đảm bảo các tiêu chuẩn SEO.</li><li>Phân tích từ khóa, theo dõi các chỉ số SEO để tối ưu hóa và đưa ra các giải pháp cải thiện.</li><li>Tích hợp và tối ưu hóa landing page cho các chiến dịch quảng cáo trực tuyến như GG Ads, FB Ads nhằm tăng tỷ lệ chuyển đổi.</li><li>Tham gia vào các dự án phát triển, nâng cấp hoặc tích hợp các tính năng mới cho website.</li><li>Phối hợp công việc với các chuyên viên trong phòng truyền thông để đảm bảo chiến lược tổng thể của VIETCOM được triển khai hiệu quả.</li></ul><p><br></p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Nhân viên', 'Số 23 Nguyễn Văn Cừ, Phường Ngọc Lâm, Quận Long Biên, Thành phố Hà Nội, Việt Nam', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><ul><li>Tốt nghiệp đại học chuyên ngành Marketing, Digital Marketing, hoặc các lĩnh vực liên quan khác;</li><li>Tối thiểu 1 năm kinh nghiệm ở các vị trí Digital Marketing Executive;</li><li>Ưu tiên ứng viên có kinh nghiệm trong lĩnh vực sản phầm tài chính;</li><li>Am hiểu về Customer Behavior của Khách hàng Doanh nghiệp;</li><li>Hiểu biết về SEO, Google Analytics và các công cụ marketing trực tuyến khác;</li><li>Tiếng Anh tốt là một lợi thế.</li><li>Có khả năng chịu áp lực trong công việc.</li></ul><h3>Quyền lợi</h3><ul><li>Tham gia các khóa đào tạo về chuyên ngành hàng hóa phái sinh, giao dịch hàng hóa;</li><li>Tham gia các hoạt động dã ngoại, phát triển đội nhóm làm việc, sinh nhật và tiệc tổng kết năm;</li><li>Đóng BHXH, BHYT, BHTN theo quy định hiện hành;</li><li>Được hưởng các chế độ, chính sách khác theo Nội quy quy chế của Công ty đã được ban hành;</li><li>Mức lương: theo thỏa thuận.</li></ul><p><br></p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Part Time', 53, '5.000.000 VNĐ', '1 năm', 'Bất kì', '2024-11-28 17:00:00', 0x31, '2024-11-19 10:11:03', '2024-11-26 07:50:03', 13),
 (15, 2, 'Nhân Viên Marketing Kinh Nghiệm Từ 6 Tháng Trở Lên - Thu Nhập Từ 10 - 30tr/Tháng Nhận Việc Ngay', 'nhan-vien-marketing-kinh-nghiem-tu-6-thang-tro-len-thu-nhap-tu-10-30trthang-nhan-viec-ngay', 'nhan-vien-marketing-kinh-nghiem-tu-6-thang-tro-len-thu-nhap-tu-10-30trthang-nhan-viec-ngay.jpg', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><ul><li>Tìm hiểu Sản phẩm của Doanh nghiệp , Nghiên cứu KH, phân tích chân dung khách hàng</li><li>Nghiên cứu các Thị trường Hàn , Nhật, Đài, Malay ... để mang sản phẩm của doanh nghiệp tới các Quốc Gia đó</li><li>Tự do sáng tạo những bộ ảnh , video , nội dung content ,landing page. Lên kế hoạch cho chiến lược tiếp theo</li><li>Tạo page, xây dựng page: Lên kế hoạch , thực hiện các chiến dịch Maketing trên các nền tảng Facebook , Chuyển đổi ...</li><li>Target + điều hướng chiến dịch tới những Khách hàng mục tiêu , những khách hàng tiềm năng</li><li>Phân tích các chỉ số khi chiến dịch đang hoạt động, sửa lỗi từng chỉ số để đạt được hiệu quả cao và nhanh chóng</li><li>Đo lường, đánh giá, tối ưu nội dung, chi phí, tỉ lệ chuyển đổi</li><li>Thống kê, báo cáo, phân tích hiệu quả Maketing</li><li>Được hỗ trợ tất cả các chi phí liên quan đến hoạt dộng Công ty</li></ul><p><br></p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Nhân viên', 'Số 56-57 Đường 23 Khu Đô Thị TP Giao Lưu, Phạm Văn Đồng, Cổ Nhuế 2, Bắc Từ Liêm, Hà Nội', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><ul><li>Bằng cấp/chuyên môn: Tốt nghiệp CĐ, ĐH các chuyên ngành liên quan đến MKT hoặc tốt nghiệp các khoá học liên quan đến MKT</li><li>Kinh nghiệm làm việc: Có kinh nghiệm là một lợi thế ( chấp nhận các bạn TTS MKT năm cuối)</li><li>Độ tuổi 1995 -2002</li><li>Yêu cầu bắt buộc: Biết photoshop/edit video cơ bản trên PC, như 1 số phần mềm adobe illustrator, adobe premier, .....</li><li>Có tư duy Marketing sáng tạo, đam mê Digital Marketing</li><li>Chăm chỉ, kiên trì, có tinh thần học hỏi, có sự cầu tiến</li><li>Có laptop cá nhân</li><li>Không yêu cầu ngoại ngữ.</li></ul><h3>Quyền lợi</h3><ul><li><strong>Lương/ thưởng \"Thu nhập từ 10.000.000 – 30.000.000++++ (Lương cơ bản 6.500.000 + %1,2-4,4% Doanh số + Thưởng tối ưu chi phí+ ThưởngDS tuần + Thưởng DS tháng+ Thưởng sao+ Thưởng Contest + 1% DS CSKH ( Được xem chi tiết cơ chế khi Phỏng vấn)</strong></li><li><strong>Lương Thử việc: 5.200.000 + % doanh số + thưởng + 1% THU NHẬP THỤ ĐỘNG HẰNG THÁNG ( DS từ CSKH)\"</strong></li><li>Phúc lợi khác: Được đóng BHXH/bảo hiểm nhân thọ &amp; hưởng chế độ phúc lợi theo quy định</li><li>Được Thưởng các ngày Lễ, Tết, được tổ chức sinh nhật</li><li>Được đào tạo bài bản từ cơ bản - chuyên sâu</li><li>Thời gian làm việc: 8h20 - 17h30, tháng nghỉ 05 ngày tùy chọn</li><li>Môi trường làm việc: Hiện đại, trẻ trung, năng động, chuyên nghiệp</li></ul><p><br></p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Full Time', 53, '10 triệu VNĐ', '6 tháng', 'Nam', '2024-11-29 17:00:00', NULL, '2024-11-19 10:20:23', '2024-11-19 10:31:01', 14),
-(16, 2, 'Digital Marketing (Thu Nhập 15 - 25 Triệu)', 'digital-marketing-thu-nhap-15-25-trieu', 'digital-marketing-thu-nhap-15-25-trieu.jpg', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><p><strong>Công ty hoạt động lĩnh vực tuyển sinh hệ E_learning cho 10 trường ĐH top của Việt Nam</strong></p><ul><li>Xây dựng các kế hoạch &amp; trực tiếp triển khai, setup các hình thức quảng cáo theo ngân sách được duyệt trên các kênh digital ( Fb ads, GG ads, zalo ads, tiktok ads...)</li><li>Theo dõi, thống kê và phân tích số liệu, tính hiệu quả của quảng cáo.</li><li>Điều chỉnh và tối ưu các chiến dịch quảng cáo, tối ưu ngân sách cho từng chiến dịch.</li><li>Báo cáo kết quả định kỳ và đề xuất hướng sử lý</li></ul><p><br></p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Nhân viên', 'Nhà số 9, ngõ 138/64 đường Ỷ La, Phường Dương Nội, Quận Hà Đông, Thành phố Hà Nội, Việt Nam', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><h3>Yêu cầu ứng viên</h3><ul><li>Tốt nghiệp Cao đẳng, Đại học chuyên ngành Marketing</li><li>Có ít nhất 02 năm kinh nghiệm kinh khai Digital marketing</li><li>Đã từng làm việc trong lĩnh vực giáo dục với ngân sách lớn là 1 lợi thế.</li><li>Tinh thần làm việc có trách nhiệm, có mục tiêu công việc rõ ràng, là người cầu tiến, ham học hỏi.</li><li>Có kỹ năng làm việc theo nhóm và làm việc độc lập.</li></ul><h3>Quyền lợi</h3><p>Làm việc 5.5 buổi / tuấn. Nghỉ chiều T7 + ngày CN , Nghỉ 1 buổi bất bì trong tháng hưởng nguyên lương</p><ul><li><strong>Tổng thu nhập: từ 15.000.000 - 25.000.000 ;</strong></li><li><strong>Xét tăng lương 1 - 4 lần/ năm (theo năng lực);</strong></li><li>Đóng BHXH, nghỉ lễ, phép và các chế độ theo quy định của Nhà nước/ Công ty;</li><li>Làm việc trong môi trường năng động, chuyên nghiệp có nhiều cơ hội thăng tiến.</li><li>Được đào tạo, nâng cao nghiệp vụ thường xuyên</li><li>Môi trường làm việc thân thiện, công bằng, minh bạch</li></ul><p><br></p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Full Time', 53, '15 triệu VNĐ', '1 năm', 'Nam', '2024-11-28 17:00:00', NULL, '2024-11-19 10:41:02', '2024-11-19 10:41:02', 15),
+(16, 2, 'Digital Marketing (Thu Nhập 15 - 25 Triệu)', 'digital-marketing-thu-nhap-15-25-trieu', 'digital-marketing-thu-nhap-15-25-trieu.jpg', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><p><strong>Công ty hoạt động lĩnh vực tuyển sinh hệ E_learning cho 10 trường ĐH top của Việt Nam</strong></p><ul><li>Xây dựng các kế hoạch &amp; trực tiếp triển khai, setup các hình thức quảng cáo theo ngân sách được duyệt trên các kênh digital ( Fb ads, GG ads, zalo ads, tiktok ads...)</li><li>Theo dõi, thống kê và phân tích số liệu, tính hiệu quả của quảng cáo.</li><li>Điều chỉnh và tối ưu các chiến dịch quảng cáo, tối ưu ngân sách cho từng chiến dịch.</li><li>Báo cáo kết quả định kỳ và đề xuất hướng sử lý</li></ul><p><br></p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Nhân viên', 'Nhà số 9, ngõ 138/64 đường Ỷ La, Phường Dương Nội, Quận Hà Đông, Thành phố Hà Nội, Việt Nam', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><h3>Yêu cầu ứng viên</h3><ul><li>Tốt nghiệp Cao đẳng, Đại học chuyên ngành Marketing</li><li>Có ít nhất 02 năm kinh nghiệm kinh khai Digital marketing</li><li>Đã từng làm việc trong lĩnh vực giáo dục với ngân sách lớn là 1 lợi thế.</li><li>Tinh thần làm việc có trách nhiệm, có mục tiêu công việc rõ ràng, là người cầu tiến, ham học hỏi.</li><li>Có kỹ năng làm việc theo nhóm và làm việc độc lập.</li></ul><h3>Quyền lợi</h3><p>Làm việc 5.5 buổi / tuấn. Nghỉ chiều T7 + ngày CN , Nghỉ 1 buổi bất bì trong tháng hưởng nguyên lương</p><ul><li><strong>Tổng thu nhập: từ 15.000.000 - 25.000.000 ;</strong></li><li><strong>Xét tăng lương 1 - 4 lần/ năm (theo năng lực);</strong></li><li>Đóng BHXH, nghỉ lễ, phép và các chế độ theo quy định của Nhà nước/ Công ty;</li><li>Làm việc trong môi trường năng động, chuyên nghiệp có nhiều cơ hội thăng tiến.</li><li>Được đào tạo, nâng cao nghiệp vụ thường xuyên</li><li>Môi trường làm việc thân thiện, công bằng, minh bạch</li></ul><p><br></p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Full Time', 53, '15 triệu VNĐ', '1 năm', 'Nam', '2025-11-28 17:00:00', NULL, '2024-11-19 10:41:02', '2024-11-19 10:41:02', 15),
 (17, 2, 'Nhân Viên Kinh Doanh/ Tư Vấn Tài Chính Cá Nhân (Từ 25 Tuổi, Lương Cứng Từ 12 - 15 Triệu + Hoa Hồng Hấp Dẫn) - Tại Hà Nội', 'nhan-vien-kinh-doanh-tu-van-tai-chinh-ca-nhan-tu-25-tuoi-luong-cung-tu-12-15-trieu-hoa-hong-hap-dan-tai-ha-noi', 'nhan-vien-kinh-doanh-tu-van-tai-chinh-ca-nhan-tu-25-tuoi-luong-cung-tu-12-15-trieu-hoa-hong-hap-dan-tai-ha-noi.jpg', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><p>- Lập kế hoạch và chủ động tìm kiếm khách hàng tiềm năng.</p><p>- Tư vấn các giải pháp tài chính tối ưu, thiết kế kế hoạch bảo hiểm nhân thọ phù hợp nhất cho khách hàng.</p><p>- Hỗ trợ khách hàng trong làm claim bồi thường bảo hiểm.</p><p>- Phát triển thương hiệu cá nhân trên các nền tảng mạng xã hội.</p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Nhân viên', 'Tòa Lotte Center Hà Nội, 54 Liễu Giai, Ba Đình, Hà Nội', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><p><strong>- Tốt nghiệp: Đại học/ Cao đẳng.</strong></p><p><strong>- Tuổi: 25 - 38</strong></p><p><strong>- Yêu thích công việc kinh doanh, chăm sóc khách hàng và có nhiều mối quan hệ trong lĩnh vực bảo hiểm, tài chính, ngân hàng, bất động sản, du lịch và dịch vụ làm đẹp.</strong></p><p>- Ngoại hình sáng, tự tin trong giao tiếp, phong cách chuyên nghiệp, ham học hỏi.</p><p>- Ưu tiên ứng viên có kinh nghiệm làm sales, ngân hàng, bảo hiểm....</p><p><br></p><h3>Quyền lợi</h3><p><strong>- Lương cứng: 12 - 15tr (không áp KPI) + commission tháng/ quý/ năm</strong></p><p><br></p><p>- Quy trình đào tạo bài bản, sẽ có quản lý cầm tay chỉ việc trong thời gian đầu tiên làm quen với môi trường bảo hiểm.</p><p>- Lộ trình thăng tiến nhanh, rõ ràng sau 6 tháng.</p><p>- Cơ hội đi du lịch trong nước và nước ngoài hàng năm</p><p>- Đào tạo liên tục với các khóa học kỹ năng quản lý, kỹ năng tư vấn tại Học viện AIA Ngoại Hạng</p><p><strong>- Ngoài ra, đến với Kênh Alpha, ứng viên sẽ có các đặc quyền MDRT Trail:</strong></p><p>+ Hỗ trợ đảm bảo thu nhập</p><p>+ Nhận thêm nhiều chương trình thi đua, thưởng hấp dẫn</p><p>+ Ưu tiên phân bổ khách hàng tiềm năng</p><p>+ Cơ hội vinh danh trong cộng đồng MDRT Trail &amp; Kênh Alpha</p><p>+ Cộng đồng Zalo tương tác hỗ trợ riêng biệt</p><p>+ Được đào tạo phát triển kỹ năng toàn diện, tham gia các chương trình Đào tạo riêng biệt được tổ chức bởi Bộ phận Huấn luyện cấp cao và các Diễn giả chuyên nghiệp</p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\" style=\"margin-top: -56px;\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Full Time', 55, '12 triệu VNĐ', '1 năm', 'Bất kì', '2024-11-27 17:00:00', NULL, '2024-11-21 06:42:50', '2024-11-21 06:42:50', 16),
 (18, 2, 'Quản Lý Khách Hàng Doanh Nghiệp Vừa Và Nhỏ - SME', 'quan-ly-khach-hang-doanh-nghiep-vua-va-nho-sme', 'quan-ly-khach-hang-doanh-nghiep-vua-va-nho-sme.jpg', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><p><strong>Mục đích công việc:</strong></p><p><br></p><ul><li>Chịu trách nhiệm Phát triển và quản lý danh mục KHDN vừa và nhỏ mới nhằm khai thác tối đa cơ hội tăng doanh thu từ việc cung cấp các giải pháp, sản phẩm, dịch vụ của Khối KHDN đồng thời đảm bảo kiểm soát rủi ro hiệu quả</li></ul><p><br></p><p><strong>Trách nhiệm công việc:</strong></p><p><br></p><ul><li>Chủ động tìm kiếm, phát triển khách hàng mới và quản trị mối quan hệ khách hàng để khai thác tối đa cơ hội kinh doanh đảm bảo theo đúng định hướng của Khối KHDN vừa và nhỏ tại từng thời kỳ;</li><li>Đánh giá, trực tiếp thẩm định, lập tờ trình và hoàn thiện hồ sơ tín dụng trình phê duyệt theo phân cấp thẩm quyền và quy định của VIB đảm bảo tăng trưởng tín dụng an toàn và bền vững;</li><li>Quản trị rủi ro của danh mục khách hàng đang quản lý, chịu trách nhiệm trực tiếp về nợ quá hạn, NPL của danh mục khách hàng đang quản lý;</li><li>Thực hiện các nhiệm vụ khác theo phân công của cấp quản lý.</li></ul><p><br></p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Nhân viên', 'Tầng 1, (Tầng trệt) và Tầng 2 Tòa nhà Sailing Tower, số 111A Pasteur, Phường Bến Nghé, Quận 1, Hồ Chí Minh', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><ul><li>Cử nhân chuyên ngành Kinh tế, kinh doanh, tài chính, ngân hàng trở lên;</li><li>Tối thiểu 4 năm trở lên (SERM); 3 năm trở lên (SRM); 2 năm trở lên (RM) kinh nghiệm làm quản lý khách hàng doanh nghiệp, thẩm định và phân tích tín dụng KHDN;</li><li>Hiểu biết tốt về sản phẩm dịch vụ dành cho KHDN, thị trường, ngành hàng, chuỗi khách hàng;</li><li>Kỹ năng phân tích, thẩm định và quản lý hoạt động tín dụng;</li><li>Kỹ năng bán hàng (thuyết trình, bán hàng, đàm phán), xử lý tình huống, giao tiếp tốt;</li><li>Kỹ năng làm việc với lãnh đạo các doanh nghiệp, tổ chức tài chính;</li><li>Ưu tiên thành thạo Tiếng Anh.</li><li><br></li></ul><h3>Quyền lợi</h3><ul><li>Lương cơ bản &amp; Lương kinh doanh (bonus, incentive) hấp dẫn, không giới hạn thu nhập</li><li>Ký HĐLĐ chính thức với VIB</li><li>Chế độ BHXH full 100%</li><li>Ngày phép 15 ngày/năm &amp; ngày lễ theo quy định luật lao động</li><li>Thưởng cuối năm theo hiệu quả làm việc</li><li>Lộ trình thăng tiến trong công việc</li></ul><p><br></p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Full Time', 55, '10 triệu VNĐ', '6 tháng', 'Nữ', '2024-11-25 17:00:00', NULL, '2024-11-21 06:45:23', '2024-11-21 06:45:23', 17),
 (19, 2, 'Nhân Viên Telesale Ngân Hàng Tại Đống Đa, Hà Nội', 'nhan-vien-telesale-ngan-hang-tai-dong-da-ha-noi', 'nhan-vien-telesale-ngan-hang-tai-dong-da-ha-noi.jpg', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><p>- Gọi ra tư vấn sản phẩm, chăm sóc khách hàng theo kịch bản có sẵn theo 2 kênh:</p><p>+ OB Service: thực hiện cuộc gọi theo kịch bản với nội dung về chất lượng dịch vụ của MB bank và nhắc nợ.</p><p>+ OB sale: thực hiện cuộc gọi theo kịch bản với nội dung bán các sản phẩm của MB bank.</p><p>- Thời gian làm việc: 08h00 - 17h30 (Nghỉ chủ nhật + 2 ngày thứ 7/tháng)</p><p>- Địa chỉ làm việc: Hội sở ngân hàng MB bank – 21 Cát Linh – Đống Đa – Hà Nội.</p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Nhân viên', 'Tòa nhà cụm công nghiệp Lai Xá - Kim Chung - Hoài Đức - Hà Nội ( gần ĐH Thành Đô )', '<div class=\"ql-editor\" data-gramm=\"false\" contenteditable=\"true\" data-placeholder=\"Compose an epic...\"><p>- Nam/Nữ, tuổi từ 20 - 33</p><p>- Tốt nghiệp từ trung cấp trở lên.</p><p>- Có giọng nói chuẩn: Không nói ngọng, không nói lắp, không nói giọng địa phương.</p><p>- Có kinh nghiệm về hỗ trợ/chăm sóc khách hàng/sale là một lợi thế.</p><p>- Yêu cầu đối với Nữ: trong 1 năm đầu không mang bầu.</p><p><br></p><h3>Quyền lợi</h3><p>- Thu nhập trung bình&nbsp;<strong>8 - 12</strong>&nbsp;triệu/tháng (Lương cứng: 6.500.000 - 6.850.000 đồng/tháng)</p><p>+ Hỗ trợ đào tạo 700.000 đ/khóa học (Đào tạo khoảng 7-10 ngày, tiền hỗ trợ sẽ được chi trả cùng tháng lương đầu tiên khi vào làm việc).</p><p>+ Thưởng KPI lên tới 4.000.000đ/tháng.</p><p>+ Được đăng ký làm thêm, tăng ca để tăng thu nhập (150%, 200% lương).</p><p>+ Thử việc 2 tháng nhận đủ 100% lương.</p><p>+ Được tham gia BHYT, BHXH, BHTN sau thử việc.</p><p>+ Được hưởng các chế độ đài thọ khác của công ty: nghỉ mát, sinh nhật, hiếu, hỷ, lễ tết, ....</p></div><div class=\"ql-clipboard\" contenteditable=\"true\" tabindex=\"-1\"></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>', 'Full Time', 55, '11 triệu VNĐ', 'Không cần kinh nghiệm', 'Nữ', '2024-11-29 17:00:00', NULL, '2024-11-21 06:47:00', '2024-11-21 06:47:00', 18),
@@ -286,6 +287,29 @@ INSERT INTO `job_categories` (`id`, `title`, `slug`, `desc`, `parent_id`, `creat
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `mail_history`
+--
+
+CREATE TABLE `mail_history` (
+  `id` bigint UNSIGNED NOT NULL,
+  `user_id` bigint UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mail_content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `company_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `mail_history`
+--
+
+INSERT INTO `mail_history` (`id`, `user_id`, `title`, `mail_content`, `created_at`, `updated_at`, `company_id`) VALUES
+(5, 35, 'Thông báo về trạng thái đơn ứng tuyển', 'Đơn ứng tuyển cho công việc (Digital Marketing (Thu Nhập 15 - 25 Triệu)) đã được duyệt. Vui lòng liên hệ lại công ty để trao đổi chi tiết!', '2024-12-12 04:34:21', '2024-12-12 04:34:21', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `migrations`
 --
 
@@ -315,7 +339,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2024_11_17_022627_create_settings_table', 13),
 (14, '2023_10_24_011804_create_comments_table', 14),
 (15, '2023_10_28_073612_create_rates_table', 15),
-(16, '2024_12_01_150852_notifies', 16);
+(16, '2024_12_01_150852_notifies', 16),
+(17, '2024_12_06_140921_mail_history', 17),
+(18, '2024_12_12_112600_update_mail_history', 18),
+(19, '2024_12_21_160726_create_password_resets_table', 19);
 
 -- --------------------------------------------------------
 
@@ -354,7 +381,31 @@ INSERT INTO `notifies` (`id`, `user_id`, `application_id`, `contents`, `status`,
 (14, 2, 10, 'Đơn ứng tuyển cho công việc (Quản Lý Dự Án (Project Manager) Lương 22 - 27 Triệu) đã được duyệt. Vui lòng kiểm tra email để xem chi tiết!', 1, '2024-12-02 10:13:26', '2024-12-02 10:15:08'),
 (15, 2, 10, 'Đơn ứng tuyển cho công việc (Quản Lý Dự Án (Project Manager) Lương 22 - 27 Triệu) đã bị từ chối. Vui lòng kiểm tra email để xem chi tiết!', 1, '2024-12-02 10:14:07', '2024-12-02 10:15:08'),
 (16, 2, 11, 'Đơn ứng tuyển cho công việc (Quản Lý Dự Án (Project Manager) Lương 22 - 27 Triệu) đã được duyệt. Vui lòng kiểm tra email để xem chi tiết!', 1, '2024-12-02 10:17:20', '2024-12-02 10:20:35'),
-(17, 2, 11, 'Đơn ứng tuyển cho công việc (Quản Lý Dự Án (Project Manager) Lương 22 - 27 Triệu) đã bị từ chối. Vui lòng kiểm tra email để xem chi tiết!', 1, '2024-12-02 10:22:24', '2024-12-02 10:23:09');
+(17, 2, 11, 'Đơn ứng tuyển cho công việc (Quản Lý Dự Án (Project Manager) Lương 22 - 27 Triệu) đã bị từ chối. Vui lòng kiểm tra email để xem chi tiết!', 1, '2024-12-02 10:22:24', '2024-12-02 10:23:09'),
+(18, 2, 11, 'Đơn ứng tuyển cho công việc (Quản Lý Dự Án (Project Manager) Lương 22 - 27 Triệu) đã được duyệt. Vui lòng kiểm tra email để xem chi tiết!', NULL, '2024-12-06 07:21:47', '2024-12-06 07:21:47'),
+(19, 2, 13, 'Đơn ứng tuyển cho công việc (Digital Marketing (Thu Nhập 15 - 25 Triệu)) đã bị từ chối. Vui lòng kiểm tra email để xem chi tiết!', 1, '2024-12-11 20:49:10', '2024-12-11 20:49:28'),
+(20, 2, 13, 'Đơn ứng tuyển cho công việc (Digital Marketing (Thu Nhập 15 - 25 Triệu)) đã được duyệt. Vui lòng kiểm tra email để xem chi tiết!', 1, '2024-12-12 00:17:27', '2024-12-12 00:22:57'),
+(21, 2, 13, 'Đơn ứng tuyển cho công việc (Digital Marketing (Thu Nhập 15 - 25 Triệu)) đã bị từ chối. Vui lòng kiểm tra email để xem chi tiết!', NULL, '2024-12-12 00:41:20', '2024-12-12 00:41:20'),
+(22, 2, 13, 'Đơn ứng tuyển cho công việc (Digital Marketing (Thu Nhập 15 - 25 Triệu)) đã được duyệt. Vui lòng kiểm tra email để xem chi tiết!', NULL, '2024-12-12 04:34:16', '2024-12-12 04:34:16');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('haomrvuii@gmail.com', 'bdEgy9ufbvMZsfiTdMMbJZoOhQZ5dAn6gFq9G4w3w6RXBRmGkCCMA97UAAGy0a5G', '2024-12-21 09:17:10');
 
 -- --------------------------------------------------------
 
@@ -501,9 +552,21 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('0NvxYkvRLx09gqnS7Sk85zW78amTWcCrNiTJtlLr', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiNDg4NDZ5RnZOSUU3c1Z4VEcydGNCQzdDbkdyeGJCZUM0MnVJNk9LNiI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjUwOiJodHRwOi8vd2Vic2l0ZXR1eWVuZHVuZy1tYWluLnRlc3Q6ODA4MC9tYWlsSGlzdG9yeSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1734003376),
+('2K5getGCqHgBr4tLvri7Bv4tZ5FwifJBQIt2Xa3P', 35, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiNkZWV0ZnbkEwdGdhWFhyMmNlYW8zZUNKZUJobmM4TFU4SjJhT3ZZciI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NjM6Imh0dHA6Ly93ZWJzaXRldHV5ZW5kdW5nLW1haW4udGVzdDo4MDgwL2pvYkRldGFpbC9mdGNvLTMyeDMyLnBuZyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjM1O30=', 1733975368),
+('7swWFaK1BAdpo6Q0HuqkIrMPeblFSbMe80yH5FOg', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoid2Q4bXJBY2Q3OXNXdGluZzFKNDhIeWlvcW5VVGhLaHVTTTdsYUZrOSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly93ZWJzaXRldHV5ZW5kdW5nLW1haW4udGVzdDo4MDgwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1733233859),
+('9WtNiyfI0NAt56RhG9UXzK4QJ3OwNjV0rcKw7qJU', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiM0ZCRWs4UFhqaWdhVG83QTRJYTA2d1ZlbGtpbHo4dndxcFBZMnVYbiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTQ6Imh0dHA6Ly93ZWJzaXRldHV5ZW5kdW5nLW1haW4udGVzdDo4MDgwL2ZvcmdvdC1wYXNzd29yZCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1734797833),
+('BcXMHFsJOkMu8HIDzw4w89vsTWDXsV8zUVQEM160', 35, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVDdHNFpKZFBuU2ZnRXJLc25Ca2VCRDFEeGVLMkZOYUtaU0UyTHdrciI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly93ZWJzaXRldHV5ZW5kdW5nLW1haW4udGVzdDo4MDgwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MzU7fQ==', 1733989075),
+('DWWDSN6M46Ec5tGRSpxjGIetPv00tYOSkf0gHUD5', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMU9IVGVLZXFYNDhaa3J0aEZtdXo0aVN0NnBDZUJLcGpWVHV2eGNCSSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTg6Imh0dHA6Ly93ZWJzaXRldHV5ZW5kdW5nLW1haW4udGVzdDo4MDgwL2pvYi8xNi9hcHBsaWNhdGlvbnMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO30=', 1733989290),
 ('eFEDoaGp5vgkGDsTUAM44hCXqkq32u4mOip08M7r', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTU1xTDNZNmV2Z3hFVVJQalNQZ2kxWmU2b1lBUmRaN25YZldzZXBVWiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9qb2IvMjcvYXBwbGljYXRpb25zIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1733161775),
+('GgCt4mfyfWaCIEksLNt6kDCPcS6iQCdvpFJOUfUb', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiS3pCYzJ5TDF2NFJ0S1I0TkxFUmI0THFNU2FqZHN6akNrYk5GeTkwVSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly93ZWJzaXRldHV5ZW5kdW5nLW1haW4udGVzdDo4MDgwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1734171840),
+('ifxrfgJPLwIGe6yMI3898nHaPR0ZzC45JYnME031', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTFhSYzE2UHduWEdLcXU3Yno3cmZlQVAwZlVXcnBoWHlyZDV3YU9pQiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly90dXllbmR1bmd2aW5oLnRlc3Q6ODA4MCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1733975089),
 ('mDNVipR1B9SZRkvclT0DhuGQmItW93LeNuDZelZz', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOFVSUjJGNXhLUGRSNGMySUhxZEhZNFlZVENUa0pqd085bGhwU05vbyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDM6Imh0dHA6Ly90dXllbmR1bmd2aW5oLnRlc3Q6ODA4MC9zaG93UmVnaXN0ZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1733159699),
-('OBn2EfWRaby1713TbSdE9y7G2WJaZaVOSsIIPHad', 41, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiODltWEdpd1lGNVZsamQzVlpKWDJjcG95SHVhSjFCR2xPNWpGaTlkciI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9qb2JEZXRhaWwvZnRjby0zMngzMi5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo0MTt9', 1733161256);
+('OBn2EfWRaby1713TbSdE9y7G2WJaZaVOSsIIPHad', 41, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiODltWEdpd1lGNVZsamQzVlpKWDJjcG95SHVhSjFCR2xPNWpGaTlkciI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9qb2JEZXRhaWwvZnRjby0zMngzMi5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo0MTt9', 1733161256),
+('Ppe77VacypifHtcl1iQmEWcWslMuKTjrDD8Lpzly', 41, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRzdiMjNSUjQyQThCVWNGSzhXOXRCNjZpc2xqRGU2d1lRNW5VTUFhWiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly93ZWJzaXRldHV5ZW5kdW5nLW1haW4udGVzdDo4MDgwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6NDE7fQ==', 1734797722),
+('v7iQzEw9tVR9V52BMImStoacx5mU0uqhzWZZpKKP', 35, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMXFFVld2YmlwQWJSMllnUmZGNDdVa3oxQXY2ZXQ2T05mYzhtclBQUyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NjM6Imh0dHA6Ly93ZWJzaXRldHV5ZW5kdW5nLW1haW4udGVzdDo4MDgwL2pvYkRldGFpbC9mdGNvLTMyeDMyLnBuZyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjM1O30=', 1733493294),
+('yffxalethK8hVQ51hBfhQvNoI8unJdR6nZrTCLXu', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZG9UQU5RM0h0MUsxVWtqaURpUHhaQ2phQzF4NFNRYVVzclNaQU1NSCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDk6Imh0dHA6Ly93ZWJzaXRldHV5ZW5kdW5nLW1haW4udGVzdDo4MDgwL2FkbWluL21haWwiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1733495399),
+('ZvqDhYJITkPsqZNjZUFs8UnAQzFAr7JYLKUwvtWO', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiME1KamRBUk5iZXdqNEhRNzVNb09FU2ZmUjllY1hLNnJUQTVNcXg3WiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDk6Imh0dHA6Ly93ZWJzaXRldHV5ZW5kdW5nLW1haW4udGVzdDo4MDgwL2FkbWluL21haWwiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1733976746);
 
 -- --------------------------------------------------------
 
@@ -591,7 +654,7 @@ INSERT INTO `users` (`id`, `name`, `thumb`, `email`, `phone_number`, `email_veri
 (38, 'Biện Trường 1', NULL, 'truongtimviec1@gmail.com', '453534535', NULL, '$2y$12$zPeOi4iiHIx5UVb2PiYGQ.noPAdIq3mYA/4zuCsgz9OJ4.Wj6CBce', 3, NULL, NULL, '2024-11-21 20:45:34', '2024-11-21 20:46:10'),
 (39, 'trường tìm việc', NULL, 'truongtimviec3@gmail.com', NULL, NULL, '$2y$12$G.Vt9XhEJTYSCBF8i1xGje5pHzejaBDLqMITB4lrgsAxfBKkmmdeu', 2, 70000.00, NULL, '2024-11-22 00:35:04', '2024-11-22 00:45:01'),
 (40, 'Nguyễn thị Mai', NULL, 'maidg1302@gmail.com', '0904848855', NULL, '$2y$12$.L9.fjLQyKlEUjND7IlG6eSv6yt4OOCiCxXrTkSDO2d4dNsgdFJbi', 3, NULL, NULL, '2024-12-02 07:40:02', '2024-12-02 09:15:53'),
-(41, 'haomrvuii', NULL, 'haomrvuii@gmail.com', '0904848855', NULL, '$2y$12$TW5wtOi6ZBzK1GrlbLMAJu8U1PSPXntCWkYtQFMBeBk84UmYZK7hi', 3, NULL, NULL, '2024-12-02 10:15:54', '2024-12-02 10:16:56');
+(41, 'haomrvuii', NULL, 'haomrvuii@gmail.com', '0904848855', NULL, '$2y$12$YHA.aftRNIYQVZRw9YJnOeBzhbg7vo3E3t/SDsRc4Go1oRkuf/kKO', 3, NULL, NULL, '2024-12-02 10:15:54', '2024-12-21 09:15:09');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -656,6 +719,14 @@ ALTER TABLE `job_categories`
   ADD KEY `job_categories_parent_id_foreign` (`parent_id`);
 
 --
+-- Chỉ mục cho bảng `mail_history`
+--
+ALTER TABLE `mail_history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `mail_history_user_id_foreign` (`user_id`),
+  ADD KEY `mail_history_company_id_foreign` (`company_id`);
+
+--
 -- Chỉ mục cho bảng `migrations`
 --
 ALTER TABLE `migrations`
@@ -668,6 +739,12 @@ ALTER TABLE `notifies`
   ADD PRIMARY KEY (`id`),
   ADD KEY `notifies_user_id_foreign` (`user_id`),
   ADD KEY `notifies_application_id_foreign` (`application_id`);
+
+--
+-- Chỉ mục cho bảng `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
 
 --
 -- Chỉ mục cho bảng `password_reset_tokens`
@@ -738,7 +815,7 @@ ALTER TABLE `admin_money`
 -- AUTO_INCREMENT cho bảng `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `comments`
@@ -777,16 +854,22 @@ ALTER TABLE `job_categories`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
+-- AUTO_INCREMENT cho bảng `mail_history`
+--
+ALTER TABLE `mail_history`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `notifies`
 --
 ALTER TABLE `notifies`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `payment_histories`
@@ -867,6 +950,13 @@ ALTER TABLE `jobs`
 --
 ALTER TABLE `job_categories`
   ADD CONSTRAINT `job_categories_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `job_categories` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `mail_history`
+--
+ALTER TABLE `mail_history`
+  ADD CONSTRAINT `mail_history_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `mail_history_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `notifies`
