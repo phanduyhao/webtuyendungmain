@@ -16,6 +16,9 @@ use Carbon\Carbon;
 class AdminHomeController extends Controller
 {
     public function index(){
+        Job::where('Hide', false)
+        ->where('post_expires_at', '<', Carbon::now()) // Hết hạn đăng bài
+        ->update(['Hide' => true]); 
         $count_userAdmin = User::where('role_id',1)->count();
         $count_employee= User::where('role_id',3)->count();
         $count_company= User::where('role_id',2)->count();

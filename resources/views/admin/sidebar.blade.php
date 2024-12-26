@@ -23,13 +23,13 @@
         <li class='menu-item active'>
             <a href='/admin' class='menu-link'>
                 <i class='menu-icon tf-icons bx bx-home-circle'></i>
-                <div data-i18n='Analytics'>Dashboard</div>
+                <div data-i18n='Analytics'>Trang quản trị</div>
             </a>
         </li>
 
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Users</span>
+            <span class="menu-header-text">Người dùng</span>
         </li>
         <li class='menu-item'>
             <a href='javascript:void(0);' class='menu-link menu-toggle'>
@@ -55,19 +55,38 @@
             </ul>
         </li>
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">JOBS</span>
+            <span class="menu-header-text">Công việc</span>
         </li>
         <li class='menu-item'>
             <a href='{{route('job_categories.index')}}' class='menu-link'>
                 <i class='menu-icon tf-icons bx bx-category-alt'></i>
-                <div data-i18n='Layouts'>Quản lý danh mục jobs</div>
+                <div data-i18n='Layouts'>Quản lý danh mục công việc</div>
             </a>
         </li>
         <li class='menu-item'>
-            <a href='{{route('jobs.index')}}' class='menu-link'>
-                <i class='menu-icon tf-icons bx bx-store-alt'></i>
-                <div data-i18n='Layouts'>Quản lý jobs</div>
+            <a href='javascript:void(0);' class='menu-link menu-toggle'>
+                <i class='menu-icon tf-icons bx bxs-user-account'></i>
+                <div data-i18n='Layouts'>Quản lý công việc</div>
+                <span class="badge bg-danger">{{$count_job}}</span>
             </a>
+            <ul class='menu-sub'>
+                <li class='menu-item'>
+                    <a href='{{route('jobs.index')}}' class='menu-link'>
+                        <div data-i18n='Without menu'>Công việc đã duyệt</div>
+                    </a>
+                </li>
+                <li class='menu-item'>
+                    <a href='{{route('jobsLoading')}}' class='menu-link'>
+                        <div data-i18n='Without menu'>Công việc đang chờ duyệt</div>
+                        <span class="badge bg-danger ms-3">{{$count_job}}</span>
+                    </a>
+                </li>
+                <li class='menu-item'>
+                    <a href='{{route('jobsCanceled')}}' class='menu-link'>
+                        <div data-i18n='Without menu'>Công việc đã hủy</div>
+                    </a>
+                </li>
+            </ul>
         </li>
         <li class='menu-item'>
             <a href='{{route('applications.index')}}' class='menu-link'>
@@ -83,7 +102,7 @@
         </li>
         
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Orthers</span>
+            <span class="menu-header-text">Khác</span>
         </li>
         <li class='menu-item'>
             <a href='{{route('feedbacks.index')}}' class='menu-link'>

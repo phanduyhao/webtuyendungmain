@@ -9,11 +9,15 @@ use App\Models\Company;
 use App\Models\Application;
 use App\Models\Job_Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class HomeController extends Controller
 {
     public function index(){
-        $Jobs = Job::Where('Hide','!=',true)->orWhereNull('Hide')->orderByDesc("created_at")->take(6)->get();
+        Job::where('Hide', false)
+        ->where('post_expires_at', '<', Carbon::now()) // Hết hạn đăng bài
+        ->update(['Hide' => true]); 
+        $Jobs = Job::Where('Hide','!=',true)->where('status',true)->orWhereNull('Hide')->orderByDesc("created_at")->take(6)->get();
         $count_job = Job::count();
         $count_employee= User::where('role_id',3)->count();
         $company= Company::count();

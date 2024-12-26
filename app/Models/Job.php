@@ -36,4 +36,13 @@ class Job extends Model
     {
         return $this->belongsTo( Company::class, 'company_id','id');
     }
+    protected static function booted()
+    {
+        static::retrieved(function ($job) {
+            if (!$job->Hide && $job->post_expires_at <= now()) {
+                $job->Hide = true;
+                $job->save();
+            }
+        });
+    }
 }

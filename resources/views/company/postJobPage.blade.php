@@ -22,7 +22,7 @@
         <div class="col-lg-8 mb-4 mb-lg-0">
           <div class="d-flex align-items-center">
             <div>
-              <h2>Đăng công việc  - ( Phí mỗi bài đăng : @if($money === null) 0đ @else <span class="money">{{ number_format((float)str_replace(',', '', $money), 0, ',', '.') }} đ</span> )@endif</h2> 
+              <h2>Đăng công việc</h2> 
             </div>
           </div>
         </div>
@@ -47,6 +47,14 @@
 
           <form class="p-4 p-md-5 border rounded" id="form-post_job" enctype="multipart/form-data" action="" data-money_user="{{Auth::user()->money}}" data-money_post="{{$money}}" method="post">
             @csrf
+            <div class="d-flex align-items-center text-nowrap w-50 mb-5 border p-3 bg-info">
+              <h4 class="mb-0">Chọn gói đăng: </h4>
+              <select name="setting_id" id="" class="form-control setting">
+                @foreach($settings as $setting)
+                  <option class="setting_option" data-money="{{$setting->value}}" value="{{$setting->id}}">{{ number_format((float)str_replace(',', '', $setting->value), 0, ',', '.') }} VNĐ ( Hạn: {{$setting->key}} Ngày )</option>
+                @endforeach
+              </select>
+            </div>
             <div class="row">
                 <div class="col-8">
                     <h3 class="text-black mb-5 border-bottom pb-2">Chi tiết công việc</h3>
@@ -315,7 +323,7 @@
         $('#form-post_job').on('submit', function(e) {
             e.preventDefault();  // Ngăn form submit truyền thống
             const money_user = $(this).data('money_user');
-            const money_post = $(this).data('money_post');
+            const money_post = parseFloat($(this).find('select.setting option:selected').data('money')); // Lấy số tiền từ option được chọn
             // Tạo một đối tượng FormData để chứa tất cả dữ liệu
             if(money_user < money_post){
               alert('Số tiền trong tài khoản không đủ! Vui lòng nạp thêm tiền!');

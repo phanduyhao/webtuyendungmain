@@ -65,7 +65,11 @@ Route::group(['middleware' => 'auth'], function () {
             // Quản lý Job_Category
             Route::resource('job_categories', AdminJobCategoryController::class);
             Route::resource('jobs', AdminJobController::class);
-
+            Route::get('/jobs-loading', [AdminJobController::class, 'loading'])->name('jobsLoading');
+            Route::get('/jobs-canceled', [AdminJobController::class, 'canceled'])->name('jobsCanceled');
+            Route::post('/jobs/{id}/approve', [AdminJobController::class, 'approve'])->name('jobs.approve');
+            Route::post('/jobs/{id}/cancel', [AdminJobController::class, 'cancel'])->name('jobs.cancel');
+            
             // Quản lý phản hồi
             Route::resource('feedbacks', AdminFeedbackController::class);
 
@@ -78,8 +82,10 @@ Route::group(['middleware' => 'auth'], function () {
 
             // Settings
             Route::resource('settings', SettingController::class);
-            Route::post('/settings/update', [SettingController::class, 'update'])->name('settings.update');
-
+            // Route::post('/settings/update', [SettingController::class, 'update'])->name('settings.update');
+            Route::post('/settings/update/{id}', [SettingController::class, 'update'])->name('settings.update');
+            Route::post('/settings/store', [SettingController::class, 'store'])->name('settings.store');
+            
             // Lịch sử doanh thu
             Route::get('/doanhthu', [AdminHomeController::class, 'history'])->name('doanhthu.index');
             Route::get('/mail', [AdminMailController::class, 'index'])->name('mail.index');
@@ -116,6 +122,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/JobSaved', [FavouriteController::class, 'JobSaved'])->name('JobSaved');
         Route::delete('/favourite', [FavouriteController::class, 'destroy'])->name('favourite.destroy');
         Route::post('/update-notify-status', [NotifyController::class, 'updateNotifyStatus']);
+        Route::post('/applications/delete/{id}', [JobController::class, 'cancelCvApplied'])->name('applications.destroy');
 
     });
 });

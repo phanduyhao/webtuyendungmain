@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('jobs', function (Blueprint $table) {
-            $table->foreignId('company_id')->nullable()->constrained('companies')->onDelete('set null')->after('user_id');
-        });
-    }
+            $table->timestamp('post_expires_at')->nullable()->after('expires_at'); // Thêm cột post_expires_at
+        });    }
 
     /**
      * Reverse the migrations.

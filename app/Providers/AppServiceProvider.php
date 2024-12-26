@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use App\Models\Application;
+use App\Models\Job;
 use App\Models\Notify;
+use App\Models\Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -54,6 +55,16 @@ class AppServiceProvider extends ServiceProvider
             ->with('newAppliedCv', $newAppliedCv)
             ->with('notifies', $notifies)
             ->with('count_notifies', $count_notifies);
+            }
+        });
+
+        View::composer('admin.sidebar', function ($view) {
+            $count_job = 0; // Mặc định là 0 nếu người dùng chưa đăng nhập
+            if (Auth::check()) { // Kiểm tra xem người dùng có đăng nhập hay không
+               $count_job = Job::where('status',null)->count();
+
+            // Truyền biến sang view
+            $view->with('count_job', $count_job);
             }
         });
     }

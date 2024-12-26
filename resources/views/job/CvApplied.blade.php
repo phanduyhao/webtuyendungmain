@@ -73,14 +73,21 @@
                                     @else
                                         <td class="text-success text-wrap font-weight-bold">Đã duyệt</td>
                                     @endif --}}
-                                    <td class="">
+                                    <td class=" text-center d-flex flex-column">
                                         <a href="{{ route('jobDetail', $application->Job->slug) }}" type="button"
                                             class="btn btn-info btnDeleteAsk px-2 me-2 py-1 fw-bolder text-nowrap"
                                             data-bs-toggle="modal" data-bs-target="#modalDetail{{ $application->Job->id }}">Chi
                                             tiết
                                         </a>
+                                        @if($application->user_id == Auth::user()->id && $application->status == null)
+                                            <form action="{{ route('applications.destroy', $application->id) }}" method="POST" onsubmit="return confirm('Bạn có chắc chắn muốn hủy nạp CV này không?');">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger px-2 me-2 py-1 fw-bolder text-nowrap mt-2">
+                                                    Hủy nạp CV
+                                                </button>
+                                            </form>
+                                        @endif
                                     </td>
-
                                 </tr>
                             @endforeach
                         </tbody>
@@ -93,4 +100,13 @@
             </div>
         </div>
     </section>
+    <script>
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(event) {
+                if (!confirm('Bạn có chắc chắn muốn hủy nạp CV này không?')) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
 @endsection

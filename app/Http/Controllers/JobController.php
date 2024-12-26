@@ -9,6 +9,7 @@ use App\Models\Application;
 use Illuminate\Support\Str;
 use App\Models\Job_Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,9 @@ class JobController extends Controller
     use ValidatesRequests;
     public function jobList(Request $request)
     {
+        Job::where('Hide', false)
+        ->where('post_expires_at', '<', Carbon::now()) // Hết hạn đăng bài
+        ->update(['Hide' => true]); 
         $query = Job::where(function ($q) {
             $q->where('Hide', '!=', true)
               ->orWhereNull('Hide'); // Bao gồm cả trường hợp Hide = NULL
@@ -54,7 +58,7 @@ class JobController extends Controller
             $query->where('type', $request->type);
         }
     
-        $Jobs = $query->orderByDesc('created_at')->paginate(10);
+        $Jobs = $query->where('status',true)->orderByDesc('created_at')->paginate(10);
         $count_job = $Jobs->total();
         $categories = Job_Category::all();
         $topCompanies = Job::select('company_id', DB::raw('COUNT(*) as job_count'))
@@ -67,8 +71,6 @@ class JobController extends Controller
             'title' => 'Danh sách tuyển dụng',
         ]);
     }
-    
-
     
 
     // Xem preview Bài đăng
@@ -102,7 +104,7 @@ class JobController extends Controller
         $hasApplyJob = Application::where('user_id', Auth::id())
             ->where('job_id', $job->id)
             ->first();
-        $job_referencts = Job::Where('Hide','!=',true)->orWhereNull('Hide')->where('job_categories_id',$job->job_categories_id)->take(6)->get();
+        $job_referencts = Job::Where('Hide','!=',true)->where('status',true)->orWhereNull('Hide')->where('job_categories_id',$job->job_categories_id)->take(6)->get();
         return view('job.jobDetail', compact('job', 'user', 'company', 'hasApplyJob', 'favourite','job_referencts'), [
             'title' => $job->title
         ]);
@@ -151,6 +153,23 @@ class JobController extends Controller
         return view('job.CvApplied',compact('applications'),[
             'title' => 'CV đã ứng tuyển'
         ]);
+    }
+
+    public function cancelCvApplied($id)
+    {
+        // Kiểm tra bản ghi có tồn tại và thuộc về người dùng hiện tại không
+        $application = Application::where('id', $id)
+                                ->where('user_id', Auth::id())
+                                ->first();
+
+        if (!$application) {
+            return redirect()->back()->with('error', 'Bạn không có quyền xóa bản ghi này hoặc bản ghi không tồn tại.');
+        }
+
+        // Xóa bản ghi
+        $application->delete();
+
+        return redirect()->back()->with('success', 'Đã hủy nạp CV thành công.');
     }
 
 }

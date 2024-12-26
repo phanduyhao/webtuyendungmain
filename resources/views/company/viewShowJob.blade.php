@@ -40,6 +40,7 @@
                                 <th>Địa chỉ</th>
                                 <th>Thời gian làm việc</th>
                                 <th>Ẩn</th>
+                                <th>Trạng thái</th>
                                 <th>Thao tác</th>
                             </tr>
                         </thead>
@@ -58,15 +59,24 @@
                                         <input type="checkbox" class="toggle-hide" data-id="{{ $job->id }}"
                                                {{ $job->Hide ? 'checked' : '' }}>
                                     </td>
-                                    <td class="text-nowrap">
+                                    <td>
+                                        @if($job->status == null)
+                                            <span class="badge bg-warning text-dark fw-bold p-2">Chờ duyệt</span>
+                                        @elseif($job->status == false)
+                                            <span class="badge bg-danger text-white fw-bold p-2">Đã bị hủy</span>
+                                        @else
+                                            <span class="badge bg-success text-dark fw-bold p-2">Đã được duyệt</span>
+                                        @endif
+                                    </td>
+                                    <td class="text-nowrap d-flex flex-column">
                                         <a href="{{ route('jobDetail', $job->slug) }}" type="button"
-                                            class="btn btn-danger btnDeleteAsk px-2 me-2 py-1 fw-bolder"
+                                            class="btn btn-danger btnDeleteAsk mb-2 px-2 me-2 py-1 fw-bolder"
                                             data-bs-toggle="modal" data-bs-target="#modalDetail{{ $job->id }}">Chi
                                             tiết</a>
                                         <a href="{{ route('viewJobPageEdit', $job->slug) }}" type="button"
-                                            class="btn btn-warning btnDeleteAsk px-2 me-2 py-1 fw-bolder"
+                                            class="btn btn-warning btnDeleteAsk mb-2 px-2 me-2 py-1 fw-bolder"
                                             data-bs-toggle="modal"
-                                            data-bs-target="#modalDetail{{ $job->id }}">edit</a>
+                                            data-bs-target="#modalDetail{{ $job->id }}">Chỉnh sửa</a>
                                             <a href="{{ route('jobApplications', $job->id) }}" class="btn btn-info px-2 py-1">Đơn được nạp</a>
 
                                     </td>

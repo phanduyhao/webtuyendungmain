@@ -28,8 +28,8 @@ class CompanyController extends Controller
         $job_categories = Job_Category::all();
         $money = setting::where('key', 'money')->pluck('value')->first();
         $companies = Company::where('user_id', Auth::user()->id)->get();
-
-        return view('company.postJobPage', compact('job_categories','money','companies'), [
+        $settings = Setting::all();
+        return view('company.postJobPage', compact('job_categories','money','companies','settings'), [
             'title' => 'Đăng tin tuyển dụng'
         ]);
     }
@@ -47,6 +47,9 @@ class CompanyController extends Controller
     //view 
     public function viewJobPage()
     {
+        Job::where('Hide', false)
+        ->where('post_expires_at', '<', Carbon::now()) // Hết hạn đăng bài
+        ->update(['Hide' => true]); 
         $Jobs = Job::where('user_id', Auth::user()->id)->paginate(20);
         return view('company.viewShowJob', compact('Jobs'), [
             'title' => 'Công việc đã đăng'
@@ -55,9 +58,13 @@ class CompanyController extends Controller
     // Đăng tin
     public function postJob(Request $request)
     {
-        $money_user = Auth::user()->money;
-        $money_post =  setting::where('key', 'money')->pluck('value')->first();
-            // Validation dữ liệu
+        // $money_user = Auth::user()->money;
+        $settingId = $request->input('setting_id'); // Lấy setting_id từ request
+        $setting = Setting::find($settingId); // Truy vấn setting theo id
+        $money_post = Setting::where('id', $settingId)->pluck('value')->first(); // Truy vấn giá trị tiền từ setting_id
+        $postDuration = (int)$setting->key; // Số ngày từ gói đăng
+
+                    // Validation dữ liệu
         $this->validate($request, [
             'title' => 'required',
             'job_categories_id-select' => 'required',
@@ -149,6 +156,7 @@ class CompanyController extends Controller
         $job->description = $request->input('description');
         $job->requirements = $request->input('requirement');
         $job->expires_at = $request->input('expires');
+        $job->post_expires_at = now()->addDays($postDuration); // Ngày hết hạn đăng bài
         $job->company_id = $company->id;
         $job->save();
 

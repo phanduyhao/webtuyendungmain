@@ -95,9 +95,7 @@
                             <th>Thu nhập</th>
                             <th>Ngày đăng</th>
                             <th>Tên công ty</th>
-                            <th>Ẩn</th>
                             <th>Trạng thái</th>
-                            <th>Ngày hết hạn</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -121,19 +119,13 @@
                                     <td>{{ $job->created_at }}</td>
                                     <td>{{ $job->Company->name ?? " " }}</td>
                                     <td>
-                                        <input type="checkbox" class="toggle-hide" data-id="{{ $job->id }}"
-                                               {{ $job->Hide ? 'checked' : '' }}>
+                                        <span class="badge bg-danger">Đã hủy</span>
                                     </td>
-                                    <td>
-                                        <span class="badge bg-success">Đã duyệt</span>
-                                    </td>
-                                    <td class="text-danger">{{ $job->post_expires_at }}</td>
                                     <td class="text-nowrap">
-
                                         <a href="{{ route('jobDetail', $job->slug) }}" class="btn btn-info text-dark fw-bold" target="_blank">Chi tiết</a>
-                                        <form class="mt-2" action="{{ route('jobs.cancel', $job->id) }}" method="post">
+                                        <form class="mt-2" action="{{ route('jobs.approve', $job->id) }}" method="post">
                                             @csrf
-                                            <button class="btn btn-danger">Hủy</button>
+                                            <button class="btn btn-success">Duyệt</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -148,34 +140,4 @@
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function() {
-            $('.toggle-hide').on('change', function () {
-                let jobId = $(this).data('id');
-                let isChecked = $(this).is(':checked');
-
-                $.ajax({
-                    url: `/job/hide/${jobId}`,
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                    },
-                    data: JSON.stringify({ hide: isChecked }),
-                    contentType: 'application/json',
-                    success: function (response) {
-                        if (response.status === 'success') {
-                            alert(`Trạng thái ẩn: ${response.Hide ? 'Đã ẩn' : 'Hiện công khai'}`);
-                        } else {
-                            alert('Cập nhật trạng thái thất bại!');
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error('Lỗi:', error);
-                        alert('Có lỗi xảy ra!');
-                    },
-                });
-            });
-        });
-
-    </script>
 @endsection
